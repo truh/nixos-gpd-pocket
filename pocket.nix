@@ -16,24 +16,27 @@
   # especially for screen rotation on boot
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_gpd_pocket;
   boot.initrd.kernelModules = [
-    "pwm-lpss" "pwm-lpss-platform" # for brightness control
-    "g_serial" # be a serial device via OTG
+    "pwm-lpss"
+    "pwm-lpss-platform" # for brightness control
+    # "g_serial" # be a serial device via OTG
   ];
   networking.networkmanager.enable = true;
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
+
+  # Enable the KDE Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   services.openssh.enable = true;
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
 
   users.users = {
-    andi = {
+    jakob = {
       isNormalUser = true;
       name = "jakob";
       uid = 1337;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       extraGroups = ["wheel" "networkmanager" "docker" "cdrom" "dialout"];
     };
   };
