@@ -66,6 +66,9 @@
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
+  virtualisation.docker.enable = true;
+  nixpkgs.config.allowUnfree = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.extraUsers.guest = {
   #   isNormalUser = true;
