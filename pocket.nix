@@ -9,6 +9,7 @@
   
   environment.systemPackages = with pkgs; [
     vim
+    kdeFrameworks.networkmanager-qt
   ];
   nixpkgs.config.allowUnfree = true; # for firmware
 
