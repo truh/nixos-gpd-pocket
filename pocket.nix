@@ -2,7 +2,6 @@
 {
   imports = [
     ./hardware.nix
-    #./wifi.nix
     ./kernel.nix
     ./firmware
     ./xserver.nix
@@ -25,6 +24,7 @@
     # "g_serial" # be a serial device via OTG
   ];
   networking.networkmanager.enable = true;
+
   # force off to avoid during image building
   networking.wireless.enable = lib.mkForce false;
   services.xserver.enable = true;
@@ -33,11 +33,15 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   services.tlp.enable = true;
+
+  # Select internationalisation properties.
   i18n = {
    consoleFont = "Lat2-Terminus16";
    consoleKeyMap = "us";
    defaultLocale = "en_US.UTF-8";
   };
+
+  # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
   services.openssh.enable = true;

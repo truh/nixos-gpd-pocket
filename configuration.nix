@@ -18,22 +18,6 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
-
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.bash.enableCompletion = true;
@@ -58,13 +42,6 @@
   # services.xserver.enable = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
 
   virtualisation.docker.enable = true;
   nixpkgs.config.allowUnfree = true;
