@@ -21,6 +21,8 @@
     # "g_serial" # be a serial device via OTG
   ];
   networking.networkmanager.enable = true;
+  # force off to avoid during image building
+  networking.wireless.enable = lib.mkForce false;
   services.xserver.enable = true;
 
   # Enable the KDE Desktop Environment.
