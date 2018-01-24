@@ -5,8 +5,11 @@
     #./wifi.nix
     ./kernel.nix
     ./firmware
+    ./xserver.nix
+    ./bluetooth.nix
+    ./touch.nix
   ];
-  
+
   environment.systemPackages = with pkgs; [
     vim
     kdeFrameworks.networkmanager-qt
@@ -29,10 +32,16 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.tlp.enable = true;
+  i18n = {
+   consoleFont = "Lat2-Terminus16";
+   consoleKeyMap = "us";
+   defaultLocale = "en_US.UTF-8";
+  };
+  time.timeZone = "Europe/Vienna";
 
   services.openssh.enable = true;
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
-
 
   users.users = {
     jakob = {
@@ -43,5 +52,4 @@
       extraGroups = ["wheel" "networkmanager" "docker" "cdrom" "dialout"];
     };
   };
-
 }
