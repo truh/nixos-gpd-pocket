@@ -70,10 +70,15 @@
   nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.extraUsers.guest = {
-  #   isNormalUser = true;
-  #   uid = 1000;
-  # };
+  users.users = {
+    jakob = {
+      isNormalUser = true;
+      name = "jakob"a;
+      uid = 1337;
+      shell = pkgs.fish;
+      extraGroups = ["wheel" "networkmanager" "docker" "cdrom" "dialout"];
+    };
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

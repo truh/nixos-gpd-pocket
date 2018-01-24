@@ -42,14 +42,4 @@
 
   services.openssh.enable = true;
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
-
-  users.users = {
-    jakob = {
-      isNormalUser = true;
-      name = "jakob";
-      uid = 1337;
-      shell = pkgs.fish;
-      extraGroups = ["wheel" "networkmanager" "docker" "cdrom" "dialout"];
-    };
-  };
 }
