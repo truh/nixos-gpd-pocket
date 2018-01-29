@@ -50,7 +50,7 @@
   users.users = {
     jakob = {
       isNormalUser = true;
-      name = "jakob"a;
+      name = "jakob";
       uid = 1337;
       shell = pkgs.fish;
       extraGroups = ["wheel" "networkmanager" "docker" "cdrom" "dialout"];
