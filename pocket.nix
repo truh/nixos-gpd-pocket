@@ -1,12 +1,13 @@
 { pkgs, lib, ... }:
 {
   imports = [
+    ./bluetooth.nix
+    ./firmware
     ./hardware.nix
     ./kernel.nix
-    ./firmware
-    ./xserver.nix
-    ./bluetooth.nix
+    ./pulseaudio.nix
     ./touch.nix
+    ./xserver.nix
   ];
 
   environment.systemPackages = with pkgs; [
